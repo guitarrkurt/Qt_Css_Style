@@ -1,0 +1,31 @@
+
+w.setStyleSheet("background-image:url(./file/left.png)");
+w.show();
+
+#upLeft {
+background-color: transparent;
+border-image: url(:off.png);
+background: none;
+border: none;
+background-repeat: none;
+}
+#upLeft:pressed
+{
+   border-image: url(:on.png);
+}
+
+QT       += multimedia
+
+#include <QMediaPlayer>
+    QMediaPlayer *bajarVentana = new QMediaPlayer();
+    bajarVentana->setMedia(QUrl("/Users/guitarrkurt/Desktop/bajarVentana.mp3"));
+    bajarVentana->play();
+
+    if (bajarVentana->state() == QMediaPlayer::PlayingState){
+        bajarVentana->setPosition(0);
+                    printf("playing");
+    }
+    else if (bajarVentana->state() == QMediaPlayer::StoppedState){
+        bajarVentana->play();
+            printf("stoped");
+    }
